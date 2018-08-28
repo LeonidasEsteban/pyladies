@@ -5,8 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Super DEMO COOL DE PYLADIES 100% REAL NO FAKE</title>
+  <style>
+    body {
+      background: lightcyan;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial;
+    }
+    img {
+      align-self:center;
+    }
+  </style>
 </head>
 <body>
-  <h1>HOLA MUNDO!</h1>
+  <h1>Nombre del pokemon</h1>
+  <img src="" alt="" />
+  <script>
+    const BASE_API = 'https://pokeapi.co/api/v2/';
+    const name = document.querySelector('h1');
+    const image = document.querySelector('img');
+    fetch(`${BASE_API}pokemon/25/`)
+      .then((response)=> {
+        response.json()
+          .then((pokemon) => {
+            name.textContent = pokemon.name;
+            image.setAttribute('src', pokemon.sprites.front_default)
+            console.log(pokemon.sprites.front_default)
+            console.log(pokemon.name);
+          })
+      })
+  </script>
 </body>
 </html>
